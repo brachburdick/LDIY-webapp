@@ -4,21 +4,18 @@ import { Link } from 'react-router-dom';
 import '../styles.css'
 import {stateStoreType} from '../redux/reducers/index'
 import { useDispatch, useSelector } from 'react-redux';
+const { DMX, EnttecUSBDMXProDriver } = require("dmx-ts");
+import { connectToInterfaceAC } from '../redux/actions/actions';
+let dmx = new DMX();
+let universe;
 
 const Header = () => {
-  // add pertinent state here
-  const interfaceState = useSelector((state:stateStoreType)=> state.interface);
+  const dispatch = useDispatch();
 
-  const connectToDevice = async () => {
-    try {
-      const res = await fetch('/dmx/connect', { method: 'POST' });
-      const data = await res.json();  // Change this line to parse JSON
-      console.log(data.message);  // Access the message property of the parsed JSON object
-    } catch (err) {
-      console.error('Failed to connect:', err);
-    }
+  const connectToDevice = () => {
+    dispatch(connectToInterfaceAC());
   };
-
+  const interfaceState = useSelector((state:stateStoreType)=> state.interface);
 
 
   return(

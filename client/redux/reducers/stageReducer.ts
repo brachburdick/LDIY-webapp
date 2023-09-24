@@ -11,11 +11,11 @@ import { profile } from 'console';
 let myProj = new Projector('p_001', 'Projector 1', null, 300, 150,0)
 let stageProjectors = new QuidCollection(Projector, {myProj})
 // stageProjectors.add([new Projector('p_001', 'projector1')])
-console.log('stageProjectors', JSON.stringify(stageProjectors))
+// console.log('stageProjectors', JSON.stringify(stageProjectors))
 let myGroup = new Group('g_001', 'Group 1', null, 0, 0, 0)
 let stageGroups = new QuidCollection(Group, {myGroup})
 // stageGroups.add([new Group('g_001','group1')])
-console.log('stageGroups', JSON.stringify(stageGroups))
+// console.log('stageGroups', JSON.stringify(stageGroups))
 
 let defaultFixtures = {};
 for(let i = 1; i<4; i++){
@@ -23,7 +23,7 @@ for(let i = 1; i<4; i++){
   defaultFixtures[thisFix.id] =thisFix
 }
 let stageFixtures = new QuidCollection(Fixture, defaultFixtures)
-console.log('stageFixtures', JSON.stringify(stageFixtures))
+// console.log('stageFixtures', JSON.stringify(stageFixtures))
 
 export interface channelObj{
   identifier: string,
@@ -79,7 +79,7 @@ export const initialState = {
 
 const stageReducer = (state = initialState, action) => {
 
-  console.log('REDUCER', action);
+  // console.log('REDUCER', action);
   switch (action.type) {
     case types.ADD_QUID_TO_COLLECTION:
       return {
@@ -108,7 +108,7 @@ const stageReducer = (state = initialState, action) => {
       };
 
     case types.MOVE: 
-      console.log('MOVE called')
+      // console.log('MOVE called')
 
       //replace the quid in the relavent quid collection.
       let newQ = action.payload
@@ -138,14 +138,14 @@ const stageReducer = (state = initialState, action) => {
     //   ...state
     // }
       case types.UPDATE_FIXTURE_PROFILES:
-        console.log(`updating FP in reducer, old v new`)
-        console.log(state.myFixtureProfiles[action.payload.id])
-        console.log(action.payload)
+        // console.log(`updating FP in reducer, old v new`)
+        // console.log(state.myFixtureProfiles[action.payload.id])
+        // console.log(action.payload)
         let newMFP = {
           ...state.myFixtureProfiles,
           [action.payload.id]: action.payload};
 
-        console.log('current MFP is ', newMFP);
+        // console.log('current MFP is ', newMFP);
 
         let newUni = {};
         Array.from({length:255}, (_,i)=>i+1).forEach((ind)=>newUni[ind] = {identifier: "", parentId:null, value:0})
@@ -163,12 +163,12 @@ const stageReducer = (state = initialState, action) => {
           // console.log(newFix.homeAddys)
           for(let hAInd = 0; hAInd<newFix.homeAddys.length; hAInd ++){
             let homeAddress = parseInt(newFix.homeAddys[hAInd]);
-            console.log('on home address', homeAddress)
-            console.log(newFix)
+            // console.log('on home address', homeAddress)
+            // console.log(newFix)
             //identify each property/channel of interest
             //for each, update relative channel in universe
             for(let property in newFix){
-              console.log("property", property)
+              // console.log("property", property)
               if(property == "r" || property == 'g' || property == 'b' || property == 'dimmer' || property == 'misc' ){        
                   let relativeAddress = parseInt(newFix[property]);
                   // console.log(homeAddress)
@@ -182,8 +182,8 @@ const stageReducer = (state = initialState, action) => {
           }
         }
     
-      console.log('updated universe' )
-      console.log(newUni)
+      // console.log('updated universe' )
+      // console.log(newUni)
       return{
         ...state,
         outgoingUniverse: newUni,
@@ -191,7 +191,7 @@ const stageReducer = (state = initialState, action) => {
       }
 
       case types.ADD_FIXTURE_PROFILE:
-      console.log('adding fixture', action.payload.id)
+      // console.log('adding fixture', action.payload.id)
       return {
         ...state,
         myFixtureProfiles: {
@@ -201,7 +201,7 @@ const stageReducer = (state = initialState, action) => {
       };
       
       case types.REMOVE_FIXTURE_PROFILE:
-        console.log('removing fixture', action.payload.id)
+        // console.log('removing fixture', action.payload.id)
         const newState = { ...state };
         delete newState.myFixtureProfiles[action.payload.id];
         return newState;
@@ -211,7 +211,7 @@ const stageReducer = (state = initialState, action) => {
           let thisColor = {r,g,b,dimmer:Math.floor(a*255)};
 
         
-          console.log('make sure universe has values!', state.outgoingUniverse)
+          // console.log('make sure universe has values!', state.outgoingUniverse)
           let updatedColorUni = JSON.parse(JSON.stringify(state.outgoingUniverse))
           Object.keys(updatedColorUni).forEach((ele)=> {
             let thisChannel = updatedColorUni[ele]
@@ -219,8 +219,8 @@ const stageReducer = (state = initialState, action) => {
               if(thisChannel.identifier == "dimmer")console.log('Here')
             thisChannel.value = (thisChannel.identifier && thisColor[thisChannel.identifier]) ?  thisColor[thisChannel.identifier] : 0 }
           })
-          console.log('new updated color universe')
-          console.log(updatedColorUni)
+          // console.log('new updated color universe')
+          // console.log(updatedColorUni)
           
           return {
             ...state,
@@ -231,7 +231,7 @@ const stageReducer = (state = initialState, action) => {
 
 
         case 'UPDATE_OUTGOING_UNIVERSE':
-          console.log('updating universe in reducer', action.payload)
+          // console.log('updating universe in reducer', action.payload)
           
           return {
             ...state,

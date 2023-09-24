@@ -38,8 +38,8 @@ const FixtureProfileSelectionBox: React.FC<Props> = ({ id }) => {
     const [tempInputValues, setTempInputValues] = useState({ r: "", g: "", b: "", dimmer: "" });
 
     function produceChannelArray(numChannels = profile.numChannels){
-      console.log('in production of channel array');
-      console.log(numChannels);
+      // console.log('in production of channel array');
+      // console.log(numChannels);
       if(numChannels){
         return ([
           <option value="" key="default">
@@ -71,11 +71,11 @@ const FixtureProfileSelectionBox: React.FC<Props> = ({ id }) => {
         const {name, value} = e.target;
         
         let newVal = name === "numChannels" ? parseInt(value, 10) : value === "" ? null : value;
-        console.log('updating profile');
-        console.log(prevProfileRef.current[name]);
-        console.log(newVal);
+        // console.log('updating profile');
+        // console.log(prevProfileRef.current[name]);
+        // console.log(newVal);
         if(!isEqual(prevProfileRef.current[name], newVal)){
-          console.log('inequality detected; updating local profile')
+          // console.log('inequality detected; updating local profile')
           setProfile((profile) => ({
             ...profile,
             [name]: newVal,
@@ -95,10 +95,10 @@ const FixtureProfileSelectionBox: React.FC<Props> = ({ id }) => {
 
 
       useEffect(() => {
-        console.log('in the useEffect for a change in profile');
+        // console.log('in the useEffect for a change in profile');
         
         if (!isEqual(profile, prevProfileRef.current)) {
-          console.log("updating global state from FP");
+          // console.log("updating global state from FP");
           prevProfileRef.current = JSON.parse(JSON.stringify(profile));
           dispatch(updateFixtureProfilesAC(JSON.parse(JSON.stringify(profile))));
         }
@@ -121,11 +121,11 @@ const FixtureProfileSelectionBox: React.FC<Props> = ({ id }) => {
 
 
   function handleUpdate(e) {
-    console.log('handleUpdate')
+    // console.log('handleUpdate')
 
   }
   function handleDelete(e) {
-    console.log('handleDelete')
+    // console.log('handleDelete')
 
   }
 

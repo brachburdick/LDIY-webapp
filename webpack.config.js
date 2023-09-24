@@ -64,6 +64,10 @@ const config = {
             "net": false,
             "tls": false,
           },
+      
+            alias: {
+              buffer: 'buffer'
+            },
       },
 
       

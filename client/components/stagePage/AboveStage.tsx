@@ -17,16 +17,16 @@ const handleClick =  async (path) =>{
 
   try{
     const data = await fetchWithAsync(path);
-    console.log('data from server: ' , data)
+    // console.log('data from server: ' , data)
   } catch (error) {
-    console.log('problem: ', error.message)
+    // console.log('problem: ', error.message)
   }
 }
 
 const handleOtherClick = async (path) =>{
   const response =  await fetch(`http://localhost:3333${path}`)
-  console.log('post other handleClick response')
-  console.log(response)
+  // console.log('post other handleClick response')
+  // console.log(response)
 }
 
     return (    

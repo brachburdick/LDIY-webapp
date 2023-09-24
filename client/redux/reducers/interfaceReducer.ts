@@ -1,25 +1,59 @@
 import { bindActionCreators } from "redux";
+const { DMX, EnttecUSBDMXProDriver } = require("dmx-ts");
+let dmx = new DMX();
 
-export const initialState = { 
-   connected: false,
-   port: null,
-   name: null
+export type initialStateType = { 
+   connected: boolean,
+   name: string,
+   serialPort: any,
+   universe: any,
+   dmxManager: typeof dmx;
   };
+
+export const initialState: initialStateType = { 
+  connected: false,
+  name: "demo",
+  serialPort: null,
+  universe: null,
+  dmxManager: dmx
+
+ };
 
 const interfaceReducer = (state = initialState, action) => {
 
-    console.log('INTERFACE REDUCER', action);
+    // console.log('INTERFACE REDUCER', action);
     switch (action.type) {
-        case 'interface/connect':
-          return {
-            ...state,
-            connected: true,
-            interfaceDetails: action.payload,
-          };
-        // handle other action types...
+        case 'connectToInterface':
+          // const enttecDriver = new EnttecUSBDMXProDriver(serialPort);
+
+
+
+        return {
+          ...state,
+          connected: action.payload.connection,
+          serialPort: action.payload.serialPort
+        };
+
+        // case 'updateConnection':
+
+
+        //   return {
+        //     ...state,
+        //     connected: action.payload.connection,
+        //     serialPort: action.payload.serialPort
+        //   };
+        
+        // case 'updateUniverse':
+
+
+        //   return{
+        //     ...state,
+        //     universe: action.payload.universe
+        //   }
+        
        
         default:
-          return state; // Ensure that current state is returned by default
+          return state; 
       }
 
 }

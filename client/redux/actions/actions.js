@@ -63,4 +63,13 @@ export const updateOutgoingUniverseAC = (universe) => {
   };
 };
 
+export const connectToInterfaceAC = () => {
+  return {
+    type: types.CONNECT_TO_INTERFACE,
+    payload:null,
+  };
+};
+
+
+
 
