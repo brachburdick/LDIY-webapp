@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../styles.css'
 import {stateStoreType} from '../redux/reducers/index'
 import { useDispatch, useSelector } from 'react-redux';
-const { DMX, EnttecUSBDMXProDriver } = require("dmx-ts");
+const { DMX, EnttecUSBDMXProDriver } = require("../../dmx-ts/src/index");
 import { connectToInterfaceAC } from '../redux/actions/actions';
 let dmx = new DMX();
 let universe;

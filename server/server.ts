@@ -9,7 +9,7 @@ const {json} = require('express')
 app.use(cors());
 const db = require('./models/entryModel.js');
 // At the top of your server file
-const { DMX, EnttecUSBDMXProDriver } = require("dmx-ts");
+const { DMX, EnttecUSBDMXProDriver } = require("../dmx-ts/src/index");
 const dmx = new DMX();
 let universe;
 

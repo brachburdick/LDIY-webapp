@@ -1,5 +1,5 @@
 import { bindActionCreators } from "redux";
-const { DMX, EnttecUSBDMXProDriver } = require("dmx-ts");
+const { DMX, EnttecUSBDMXProDriver } = require("../../../dmx-ts/src/index");
 let dmx = new DMX();
 
 export type initialStateType = { 

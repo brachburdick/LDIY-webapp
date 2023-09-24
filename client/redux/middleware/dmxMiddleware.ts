@@ -1,5 +1,5 @@
 import { Middleware } from 'redux';
-import { EnttecUSBDMXProDriver } from 'dmx-ts';
+import { EnttecUSBDMXProDriver } from '../../../dmx-ts/src/index';
 
 export const dmxMiddleware: Middleware = store => next => async action => {
   next(action);
