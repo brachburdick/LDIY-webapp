@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": false,
+      "module": "commonjs",
+      "target": "es6",
+      "jsx": "react-jsx",
+      "allowJs": true,  // This allows JS files to be compiled.
+      "esModuleInterop": true,
+      "skipLibCheck": true
+    },
+    "include": [
+      "./**/*",
+      "./types/**/*" 
+
+    ]
+  }
+  

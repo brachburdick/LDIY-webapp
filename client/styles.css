@@ -1,0 +1,194 @@
+body, #topmostLevel {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Futura', Arial, Helvetica, sans-serif;
+  background:
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+  linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+  url('../assets/yellowGreenMovers.jpg');
+
+  background-repeat: no-repeat;
+
+
+}
+body::after {
+  content: '';
+  position: fixed; /* Fixed position */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Sit behind the content */
+
+  background-image: url('../assets/yellowGreenMovers.jpg');
+  background-size: 90%;
+
+  filter: blur(15px) brightness(0.7); /* Apply blur and brightness */
+}
+
+body, button {
+  position: relative;
+}
+
+#belowstage, #header, .column-header, .fixture-bullet, .grouping-checkbox, .channel-bullet, .channel-row, .input-group label {
+  color: white;
+}
+
+#headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+#stagepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button {
+  border-radius: 50px;
+  background-color: rgb(116, 116, 116);
+  font-family: 'Futura';
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Add transform to the transition */
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.button:hover {
+  background-color: rgb(96, 96, 96); /* Darken the background color on hover */
+  transform: scale(1.05); /* Increase the size on hover */
+}
+
+
+
+.button:focus {
+  outline: none;
+}
+
+.column-container{
+ display:flex
+}
+
+.uploadButton {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+}
+
+.uploadButton:hover {
+  background-color: #0056b3;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+}
+
+.column {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+}
+
+.channel-selector {
+  width:3rem;
+  display: flex;
+  border-radius: 50px; 
+  border: none;
+  padding: 10px;
+  background-color: rgb(116, 116, 116);
+  color: rgb(255, 255, 255);
+  margin-left: 2rem;
+}
+
+.misc-input{
+  border-radius: 50px; 
+  border: none;
+  padding: 10px;
+  background-color: rgb(116, 116, 116);
+  color: rgb(255, 255, 255);
+}
+.input-description {
+  display: flex;
+  align-items: left; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  color:rgb(237, 237, 237)
+}
+
+.column-title{
+  color:white
+}
+.fixture-profile-box {
+  display: flex;
+  /* justify-content: center; 
+  align-items: center; */
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 50px;
+  background-color:rgb(230,230,230,.5)
+}
+
+
+.model-dropdown, .channel-assign-dropdown {
+  width: 80%;
+}
+
+.channel-assign-dropdown {
+  width: 40%;
+}
+
+.universe-channel-scroll-box {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+.fixture-profile-channel-selection-box {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: left; /* Center items vertically */
+}
+.fixture-profile-channel-selection-box input,
+.fixture-profile-channel-selection-box select,
+.misc-input input,
+.misc-input select {
+  border-radius: 50px;
+  border: none;
+  padding: 10px; 
+  background-color: rgb(116, 116, 116); 
+  color: rgb(255, 255, 255); 
+}.tag-input-selection {
+  border-radius: 50px;
+  border: none;
+  background-color: rgb(98, 98, 98); 
+  color: rgb(255, 255, 255); 
+  padding: 10px; /* Increase the padding to give more space inside the box */
+  display: flex; /* Use flexbox to align the items centrally */
+  align-items: center; /* Align items centrally */
+}
+
+.horizontal-line {
+  width: 70%; /* Set the width to 70% of the parent container */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4); /* Create a faint horizontal line */
+  margin: 20px auto; /* Add some margin and center the line */
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255, .7);
+
+}
+
