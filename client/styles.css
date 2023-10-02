@@ -2,12 +2,9 @@ body, #topmostLevel {
   margin: 0;
   padding: 20px;
   font-family: 'Futura', Arial, Helvetica, sans-serif;
-  background:
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-  linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
-  url('../assets/yellowGreenMovers.jpg');
+  background-image: radial-gradient(circle at center, rgb(91, 91, 91), black 100%);
 
-  background-repeat: no-repeat;
+
 
 
 }
@@ -19,8 +16,6 @@ body::after {
   bottom: 0;
   left: 0;
   z-index: -1; /* Sit behind the content */
-
-  background-image: url('../assets/yellowGreenMovers.jpg');
   background-size: 90%;
 
   filter: blur(15px) brightness(0.7); /* Apply blur and brightness */
@@ -192,4 +187,81 @@ body, button {
   color: rgb(255, 255, 255, .7);
 
 }
+
+
+.row-buttonRow {
+  display: flex;
+  justify-content:center;
+  gap:0;
+  margin-bottom: 20px;  /* Adjust as needed */
+}
+
+.row-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin:0;
+  transition: background-color 0.3s ease;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.row-button:hover:not(.disabled) {
+  background-color: #888; 
+}
+
+.disabled {
+  background-color: rgb(98, 98, 98); 
+  cursor: not-allowed;
+}
+
+.row-tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.row-button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.colorPicker{
+  display:flex;
+  align-content:center;
+  justify-content:center;
+  
+}
+
+.row-button.disabled:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -30px; 
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+
 

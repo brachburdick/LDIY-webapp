@@ -7,6 +7,17 @@ const DefineFixtures: React.FC = () => {
   return (
     <div className="column">
       <h2 className="column-title">Define Fixtures</h2>
+
+      <div className="row-buttonRow">
+        <button className="row-button">Manual Input</button>
+        {["Select from Open Fixture Library", "Upload JSON"].map((label, idx) => (
+          <div key={idx} style={{position: 'relative'}}>
+            <button className="row-button disabled"  data-tooltip="This feature is not yet supported">{label}</button>
+            <span className="row-tooltip">This feature is not yet supported</span>
+          </div>
+        ))}
+      </div>
+
       {[...Array(fixtureProfileCount + 1)].map((_, index) => (
         <React.Fragment key={index}>
           <FixtureProfileSelectionBox id={"FP_" + index} />

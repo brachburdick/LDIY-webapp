@@ -45,7 +45,15 @@ const Output: React.FC = () => {
   return (
     <div className="column">
       <h2 className="column-title">Output</h2>
-     
+      <div className="row-buttonRow">
+        <button className="row-button">Show All Outgoing Channels</button>
+        {["Show Active Outgoing Channels"].map((label, idx) => (
+          <div key={idx} style={{position: 'relative'}}>
+            <button className="row-button disabled" data-tooltip="This feature is not yet supported">{label}</button>
+            <span className="row-tooltip">This feature is not yet supported</span>
+          </div>
+        ))}
+      </div>
       <div className="universe-channel-scroll-box">
         {chSliders}
       </div>
