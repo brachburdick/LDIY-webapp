@@ -1,6 +1,5 @@
 import React from 'react';
 import DefineFixtures from '../components/generatePage/DefineFixtures';
-import DefineUniverse from '../components/generatePage/DefineUniverse';
 import DefineVibe from '../components/generatePage/DefineVibe';
 import Output from '../components/generatePage/Output';
 

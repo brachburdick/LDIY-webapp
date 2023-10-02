@@ -15,7 +15,7 @@ const ColorPicker = () => {
    
   };
 
-  return <ChromePicker className = "widget" color={currentColor} onChangeComplete={handleChangeComplete} />;
+  return <ChromePicker color={currentColor} onChangeComplete={handleChangeComplete} />;
 };
 
 export default ColorPicker;

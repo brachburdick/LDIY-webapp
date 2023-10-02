@@ -7,8 +7,6 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
-/*! p5.js v1.7.0 July 10, 2023 */
-
 /**
  * @license
  * Lodash <https://lodash.com/>
